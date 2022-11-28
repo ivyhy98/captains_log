@@ -1,12 +1,12 @@
 const React = require('react');
-const { listIndexes } = require('../models/logs');
+const { listIndexes } = require('../../models/logs');
+const DefaultLayout = require('../default/DefaultLayout');
 
 class Index extends React.Component{
     render(){
         const {logs} = this.props;
         return (
-          <div>
-            <h1>Captains Logs</h1>
+          <DefaultLayout title="Captains Logs">
             <a href="/logs/new">Create a new log</a>
             <ul>
               {logs.map((log)=>{
@@ -15,7 +15,7 @@ class Index extends React.Component{
                 )
               })}
             </ul>
-          </div>
+          </DefaultLayout>
         );
     }
 }

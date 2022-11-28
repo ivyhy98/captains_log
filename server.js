@@ -30,12 +30,14 @@ app.use((req,res,next)=>{
 });
 
 app.use(express.urlencoded({extended:false}));
+
 app.use(methodOverride('_method'));
 
 //==== Routes ====
 
 app.use('/logs', logControllers)
 
+//Listen on port 
 app.listen(port,()=>{
     console.log('listening on port', port);
 });

@@ -7,7 +7,7 @@ const Logs = require('../models/logs');
 router.get('/',(req,res)=>{
     Logs.find({})
         .then((logs)=>{
-            res.render("Index", {
+            res.render("logs/Index", {
               logs: logs,
             });
         })
@@ -18,7 +18,7 @@ router.get('/',(req,res)=>{
 
 //New Page
 router.get('/new',(req,res)=>{
-    res.render('New');
+    res.render('logs/New');
 });
 
 //Create
@@ -41,7 +41,7 @@ router.post('/',(req,res)=>{
 router.get('/:id',(req,res)=>{
     Logs.findById(req.params.id)
         .then((log)=>{
-            res.render('Show',{
+            res.render('logs/Show',{
                 log: log
             })
         })
@@ -54,7 +54,7 @@ router.get('/:id',(req,res)=>{
 router.get('/:id/edit', (req,res)=>{
     Logs.findById(req.params.id)
         .then((log)=>{
-            res.render('Edit',{
+            res.render('logs/Edit',{
                 log: log
             });
         })

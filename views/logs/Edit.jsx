@@ -1,11 +1,11 @@
 const React = require('react');
+const DefaultLayout = require('../default/DefaultLayout');
 
 class Edit extends React.Component{
     render(){
         const {log} = this.props
         return (
-          <div>
-            <h1>Edit Log</h1>
+          <DefaultLayout title="Edit Log">
             <form action={`/logs/${log.id}?_method=PUT`} method="POST">
               Title: <input type="text" name="title" defaultValue={log.title} />{" "}
               <br />
@@ -24,7 +24,7 @@ class Edit extends React.Component{
               <br />
               <input type="submit" value="Submit Log" />
             </form>
-          </div>
+          </DefaultLayout>
         );
     }
 }
