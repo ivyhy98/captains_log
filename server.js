@@ -30,10 +30,15 @@ app.use((req,res,next)=>{
 
 app.use(express.urlencoded({extended:false}));
 
+//Index
 app.get('/logs',(req,res)=>{
-    res.render('Index');
+    Logs.find({},(err, foundLogs)=>{
+        res.render("Index", {
+            logs: foundLogs,
+        });
+    })
 });
-
+//New Page
 app.get('/logs/new',(req,res)=>{
     res.render('New');
 });
@@ -53,6 +58,19 @@ app.post('/logs',(req,res)=>{
         }
     });
 });
+
+app.get('/logs/:id',(req,res)=>{
+    Logs.findById(req.params.id,(err, foundLog)=>{
+        if(!err){
+            res.render('Show',{
+                log: foundLog,
+            })
+        } else{
+            res.send(err);
+        }
+    })
+})
+
 
 app.listen(port,()=>{
     console.log('listening on port', port);
