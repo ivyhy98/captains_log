@@ -108,6 +108,17 @@ app.put('/logs/:id',(req,res)=>{
         })
 })
 
+//Delete
+app.delete('/logs/:id',(req,res)=>{
+    Logs.findByIdAndDelete(req.params.id)
+    .then((log)=>{
+        console.log(log);
+        res.redirect('/logs');
+    })
+    .catch((err)=>{
+        res.send(err);
+    })
+})
 
 app.listen(port,()=>{
     console.log('listening on port', port);
