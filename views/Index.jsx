@@ -11,7 +11,7 @@ class Index extends React.Component{
             <ul>
               {logs.map((log)=>{
                 return(
-                  <li key={log.id}><a href={`logs/${log._id}`}>{log.title}</a></li>
+                  <li key={log.id}><a href={`/logs/${log._id}`}>{log.title}</a></li>
                 )
               })}
             </ul>

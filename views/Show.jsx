@@ -8,7 +8,7 @@ class Show extends React.Component{
                 <h1>{log.title}</h1>
                 <p>{log.entry}</p>
                 <p><strong>{log.shipBroken? 'The ship is broken' : 'The ship is not broken'}</strong></p>
-                <a href={`/logs/{log._id}/edit`}>Edit this Log</a>
+                <a href={`/logs/${log._id}/edit`}>Edit this Log</a>
                 <br />
                 <form>
                     <input type="submit" value="Delete" />
