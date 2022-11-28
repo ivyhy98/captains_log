@@ -5,7 +5,7 @@ class New extends React.Component{
 
         return (
           <div>
-            <h1>Captains log</h1>
+            <h1>Create a New Log</h1>
             <form action="/logs" method="post">
                 Title: <input type="text" name="title" /> <br />
                 Log: <input type="text" name="entry" /> <br />
