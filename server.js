@@ -4,6 +4,7 @@ const reactViews = require("express-react-views");
 const mongoose = require("mongoose");
 const methodOverride = require('method-override')
 const app = express();
+const logControllers = require('./controllers/logController')
 const port = 3000;
 const db = mongoose.connection;
 
@@ -31,94 +32,9 @@ app.use((req,res,next)=>{
 app.use(express.urlencoded({extended:false}));
 app.use(methodOverride('_method'));
 
-//Index
-app.get('/logs',(req,res)=>{
-    Logs.find({})
-        .then((logs)=>{
-            res.render("Index", {
-              logs: logs,
-            });
-        })
-        .catch((err)=>{
-            res.send(err);
-        })
-});
+//==== Routes ====
 
-//New Page
-app.get('/logs/new',(req,res)=>{
-    res.render('New');
-});
-
-//Create
-app.post('/logs',(req,res)=>{
-    if(req.body.shipIsBroken === 'on'){
-        req.body.shipIsBroken = true;
-    } else{
-        req.body.shipIsBroken = false;
-    }
-
-    Logs.create(req.body)
-        .then((log) => {
-            res.redirect('/logs');
-        })
-        .catch((err) => {
-            res.send(err);
-        })
-});
-//Show 
-app.get('/logs/:id',(req,res)=>{
-    Logs.findById(req.params.id)
-        .then((log)=>{
-            res.render('Show',{
-                log: log
-            })
-        })
-        .catch((err) =>{
-            res.send(err);
-        })
-})
-
-//Edit
-app.get('/logs/:id/edit', (req,res)=>{
-    Logs.findById(req.params.id)
-        .then((log)=>{
-            res.render('Edit',{
-                log: log
-            });
-        })
-        .catch((err)=>{
-            res.send(err);
-        })
-})
-
-//Update
-app.put('/logs/:id',(req,res)=>{
-    if(req.body.shipIsBroken === 'on'){
-        req.body.shipIsBroken = true;
-    } else{
-        req.body.shipIsBroken = false;
-    }
-
-    Logs.findByIdAndUpdate(req.params.id, req.body)
-        .then((log)=>{
-            res.redirect(`/logs/${req.params.id}`);
-        })
-        .catch((err)=>{
-            res.send(err);
-        })
-})
-
-//Delete
-app.delete('/logs/:id',(req,res)=>{
-    Logs.findByIdAndDelete(req.params.id)
-    .then((log)=>{
-        console.log(log);
-        res.redirect('/logs');
-    })
-    .catch((err)=>{
-        res.send(err);
-    })
-})
+app.use('/logs', logControllers)
 
 app.listen(port,()=>{
     console.log('listening on port', port);
