@@ -92,4 +92,19 @@ router.delete('/:id',(req,res)=>{
     })
 })
 
+//==== Comments ====
+
+ router.post('/:id',(req,res)=>{
+    Logs.findByIdAndUpdate(req.params.id)
+        .then((log)=>{
+            log.comments.push(req.body);
+            log.save()
+            res.redirect(`/logs/${req.params.id}`);
+        })
+        .catch((err)=>{
+            res.send(err);
+        })
+
+})
+
 module.exports = router;

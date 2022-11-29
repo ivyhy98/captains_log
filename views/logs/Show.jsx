@@ -12,6 +12,7 @@ class Show extends React.Component{
             <a href="/logs">Back to Logs</a>
             <div className="show-div">
               <div className="show-post">
+                <h1>{log.title}</h1>
                 <p className="show-entry">{log.entry}</p>
                 <p>
                   {log.shipBroken
@@ -27,21 +28,24 @@ class Show extends React.Component{
                 </form>
               </div>
               <div className="show-comments-div">
-                <h2>Add A Comment</h2>
-                <form action="">
-                  <input type="text" name="comment-entry" />
-                </form>
-                <section className="show=comment">
-                  
-                {comments.map((comment)=>{
-                        return (
-                          <p key={comment.id}>
-                            <strong>{comment.date}</strong>{" "}
-                            {comment.user.toUpperCase()} | {comment.comment}
-                          </p>
-                        );
-                    })}
+                <section className="show-comment">
+                  {comments.map((comment) => {
+                    return (
+                      <p key={comment.comment}>
+                        {comment.user.toUpperCase()} | {comment.comment}
+                      </p>
+                    );
+                  })}
                 </section>
+                <h2>Leave A Comment</h2>
+                <form action={`/logs/${log.id}`} method="POST">
+                  <label htmlFor="user">User: </label>
+                  <input type="text" name="user" className="show-input" />
+
+                  <label htmlFor="entry">Comment: </label>
+                  <input type="text" name="comment" className="show-input"/>
+                  <input type="submit" value="Submit Comment" />
+                </form>
               </div>
             </div>
           </DefaultLayout>

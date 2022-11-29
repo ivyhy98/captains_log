@@ -5,6 +5,7 @@ const model = mongoose.model;
 const commentSchema = new Schema({
     user: String,
     comment: String,
+    date: Date,
 },
 {timestamps: true},
 );

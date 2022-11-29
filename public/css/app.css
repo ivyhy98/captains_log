@@ -6,10 +6,9 @@ body{
 }
 .nav-div{
     width: 100vw;
-    height: 5vh;
-    background-color: orange;
-    color: white;
+    height: 10vh;
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
     align-content: flex-end;
 }
@@ -19,11 +18,12 @@ nav{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    border-top: 2px solid #003f7d;
 }
 
 
 nav a{
-    color: white;
+    color: orange;
     text-decoration: none;
     font-size: 20px;
 }
@@ -37,6 +37,7 @@ nav a:hover{
 }
 .nav-title h1{
     text-decoration: none;
+    text-align: center;
     font-weight: bold;
     font-size: 25px;
     margin: 0;
@@ -50,8 +51,8 @@ nav a:hover{
 
 .title {
     text-align: center;
-    background-color: #003f7d;
-    color: orange;
+    color:#003f7d;
+    border-top: 2px solid #003f7d;
     height: 5vh;
 }
 
@@ -63,31 +64,40 @@ nav a:hover{
 }
 /* Index Page */
 .index-new{
-
-    margin: 20px 10px;
+    color: #003f7d;
+    display: flex;
+    width: 100%;
+    justify-content:center;
+    align-items: center;
+    margin-bottom: 10px;
 }
 .index-new a{
     text-decoration: none;
+    font-size: 30px;
     color: orange;
+    font-weight: bolder;
+    margin-left: 10px;
 }
 .index-new a:hover{
     color:#003f7d;
 }
 .index-ul{
     display: flex;
-    flex-direction: column-reverse;
     justify-content: space-around;
     align-items: center;
 }
 .index-li{
     height: 40vh;
-    width: 50vw;
-    border: 5px solid #003f7d;
-    background-color: orange;
+    width: 20vw;
     color: #003f7d;
     display: block;
     margin-bottom: 2vw;
     text-align: center;
+    overflow-x: hidden;
+    border: 3px solid orange;
+}
+.index-li:hover{
+    border: 3px solid #003f7d;
 }
 .index-li h2{
     text-decoration: none;
@@ -101,7 +111,7 @@ nav a:hover{
 
 .index-a:hover{
     text-decoration: underline;
-    color: white;
+    color: orange;
 }
 
 /* New Page */
@@ -145,13 +155,14 @@ nav a:hover{
 .show-post{
     border: 2px solid #003f7d;
     background-color: orange;
+    width: 80%;
     color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 60vh;
-    margin: 5%;
+    margin: 20px;
     text-align: center;
 }
 .button{
@@ -179,11 +190,17 @@ nav a:hover{
 
 .show-comments-div{
    border: 1px solid gray;
-   width: 80vw;
+   width: 80%;
    height: 100%;
    padding: 10px;
 }
 
+.show-comment p{
+    border-bottom: 2px dashed #003f7d;
+}
+.show-input{
+    margin: 0 10px;
+}
 
 
 

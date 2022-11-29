@@ -7,18 +7,20 @@ class Index extends React.Component{
         const {logs} = this.props;
         return (
           <DefaultLayout title="Captains Logs">
-            <h2 className="index-new">
-              <a href="/logs/new">Create a new log</a>
-            </h2>
+            <div className="index-new">
+              <h3>Create New Log</h3> {' '}
+              <a href="/logs/new"> + </a>
+            </div>
             <section className="index-ul">
               {logs.map((log) => {
                 return (
-                  <div key={log.id} className="index-li">
-                    <h2>
-                      <a href={`/logs/${log._id}`} className="index-a">{log.title}</a>
-                    </h2>
-                    <p>{log.entry}</p>
-                  </div>
+                    <div className="index-li" key={log._id}>
+                      <h2 className="index-a">
+                          {log.title}
+                      </h2>
+                      <p>{log.entry}</p>
+                      <a href={`/logs/${log._id}`}> Read more </a>
+                    </div>
                 );
               })}
             </section>
