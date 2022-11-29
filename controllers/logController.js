@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const Logs = require('../models/logs');
 
-
 //Index
 router.get('/',(req,res)=>{
     Logs.find({})
@@ -42,7 +41,8 @@ router.get('/:id',(req,res)=>{
     Logs.findById(req.params.id)
         .then((log)=>{
             res.render('logs/Show',{
-                log: log
+                log: log,
+                comments: log.comments
             })
         })
         .catch((err) =>{

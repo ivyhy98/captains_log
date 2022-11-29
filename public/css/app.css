@@ -177,7 +177,7 @@ nav a:hover{
     color: white;
 }
 
-.show-comments{
+.show-comments-div{
    border: 1px solid gray;
    width: 80vw;
    height: 100%;
