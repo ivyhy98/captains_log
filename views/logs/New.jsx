@@ -6,11 +6,17 @@ class New extends React.Component{
 
         return (
           <DefaultLayout title="Create A New Log">
-            <form action="/logs" method="post">
-                Title: <input type="text" name="title" /> <br />
-                Log: <input type="text" name="entry" /> <br />
-                Is the ship Broken? Yes:<input type="checkbox" name="shipIsBroken" /> No: Ignore <br />
-                <input type="submit" value="Submit Log" />
+            <form action="/logs" method="post" className="new-form">
+              <label htmlFor="title">Title:</label>
+              <input type="text" name="title" className="new-text" />
+
+              <label htmlFor="entry">Log Entry:</label>
+              <textarea type="text" name="entry" className="new-text entry" />
+
+              <label htmlFor="shipIsBroken">Is the ship broken?</label>
+              <input type="checkbox" name="shipIsBroken" className="new-text" />
+
+              <input type="submit" value="Submit Log" className="new-submit" />
             </form>
           </DefaultLayout>
         );

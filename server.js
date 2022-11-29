@@ -9,6 +9,7 @@ const port = 3000;
 const db = mongoose.connection;
 
 const Logs = require('./models/logs');
+// ==== Database Setup ====
 const mongoURI = process.env.MONGO_URI
 mongoose.connect(mongoURI, {
   useNewUrlParser: true,
@@ -20,11 +21,11 @@ db.on("open", () => console.log("mongo connected"));
 db.on("close", () => console.log("mongo disconnected"));
 
 
-//View engine setup
+//==== View engine setup ====
 app.set('view engine', 'jsx');
 app.engine('jsx', reactViews.createEngine());
 
-//Middleware setup
+//==== Middleware setup ====
 app.use((req,res,next)=>{
     next();
 });
@@ -33,11 +34,14 @@ app.use(express.urlencoded({extended:false}));
 
 app.use(methodOverride('_method'));
 
+//==== Static Files ====
+app.use(express.static('public'));
+
 //==== Routes ====
 
 app.use('/logs', logControllers)
 
-//Listen on port 
+//==== Listen on port ====
 app.listen(port,()=>{
     console.log('listening on port', port);
 });
