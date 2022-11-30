@@ -73,7 +73,42 @@ router.get('/:id',(req,res)=>{
             .catch((err)=>{
                 res.send(err);
             })
-})
+});
+
+//Delete
+router.delete('/:id',(req,res)=>{
+    FoodLogs.findByIdAndRemove(req.params.id)
+            .then((logs)=>{
+                res.redirect('/foodlogs')
+            })
+            .catch((err)=>{
+                res.send(err)
+            })
+});
+
+//Edit
+router.get('/:id/edit',(req,res)=>{
+    FoodLogs.findById(req.params.id)
+            .then((log)=>{
+                res.render('foodlogs/Edit',{
+                    log: log,
+                })
+            })
+            .catch((err)=>{
+                res.send(err);
+            })
+});
+
+//Update
+router.put('/:id',(req,res)=>{
+    FoodLogs.findByIdAndUpdate(req.params.id, req.body)
+            .then((log)=>{
+                res.redirect(`/foodlogs/${req.params.id}`);
+            })
+            .catch((err)=>{
+                res.send(err);
+            })
+});
 
 
 //==== Comments ====
@@ -89,5 +124,6 @@ router.get('/:id',(req,res)=>{
             res.send(err);
         })
 
-})
+});
+
 module.exports = router;

@@ -37,7 +37,7 @@ class Edit extends React.Component{
                   type="checkbox"
                   name="shipIsBroken"
                 />
-              )}{" "}
+              )}
               <br />
               <input type="submit" value="Save Changes" className="new-submit" />
             </form>

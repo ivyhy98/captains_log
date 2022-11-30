@@ -13,7 +13,7 @@ class New extends React.Component {
           <textarea type="text" name="food" className="new-text entry" />
 
           <label htmlFor="thoughts">Thoughts About What You Ate?</label>
-          <input type="text" name="thoughts" className="new-text" />
+          <textarea type="text" name="thoughts" className="new-text" />
 
           <input type="submit" value="Submit Log" className="new-submit" />
         </form>

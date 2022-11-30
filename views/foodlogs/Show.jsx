@@ -6,21 +6,24 @@ class Show extends React.Component {
     const log = this.props.log;
     const comments = log.comments;
     return (
-      <DefaultLayout title="Index">
+      <DefaultLayout title={log.title}>
         <a href="/logs">Back to Logs</a>
         <div className="show-div">
           <div className="show-post">
             <h1>{log.title}</h1>
             <p className="show-entry">
-              Thoughts about what you ate: {log.thoughts}
+              <strong>Thoughts about what you ate:</strong> {log.thoughts}
             </p>
-            <p className="show-entry">What you ate: {log.food}</p>
-            
-            <a href={`/logs/${log._id}/edit`} className="button">
+            <p className="show-entry">
+              <strong> What you ate: </strong>
+              {log.food}
+            </p>
+
+            <a href={`/foodlogs/${log._id}/edit`} className="button">
               Edit this Log
             </a>
             <br />
-            <form action={`/logs/${log.id}?_method=DELETE`} method="POST">
+            <form action={`/foodlogs/${log.id}?_method=DELETE`} method="POST">
               <input type="submit" value="Delete" />
             </form>
           </div>

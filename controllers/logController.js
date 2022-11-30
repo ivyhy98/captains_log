@@ -84,7 +84,6 @@ router.put('/:id',(req,res)=>{
 router.delete('/:id',(req,res)=>{
     Logs.findByIdAndDelete(req.params.id)
     .then((log)=>{
-        console.log(log);
         res.redirect('/logs');
     })
     .catch((err)=>{
