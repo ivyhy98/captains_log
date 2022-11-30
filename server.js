@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const methodOverride = require('method-override')
 const app = express();
 const logControllers = require('./controllers/logController')
+const foodLogControllers = require("./controllers/foodLogControllers");
 const port = 3000;
 const db = mongoose.connection;
 
@@ -40,7 +41,10 @@ app.use(express.static('public'));
 //==== Routes ====
 
 app.use('/logs', logControllers)
-
+app.use('/foodlogs', foodLogControllers);
+app.get('/',(req,res)=>{
+  res.render('Index');
+})
 //==== Listen on port ====
 app.listen(port,()=>{
     console.log('listening on port', port);

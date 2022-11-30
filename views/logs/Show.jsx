@@ -29,13 +29,17 @@ class Show extends React.Component{
               </div>
               <div className="show-comments-div">
                 <section className="show-comment">
-                  {comments.map((comment) => {
-                    return (
-                      <p key={comment.comment}>
-                        {comment.user.toUpperCase()} | {comment.comment}
-                      </p>
-                    );
-                  })}
+                  {comments.length ? (
+                    comments.map((comment) => {
+                      return (
+                        <p key={comment.comment}>
+                          {comment.user.toUpperCase()} | {comment.comment}
+                        </p>
+                      );
+                    })
+                  ) : (
+                    <p>No comments yet</p>
+                  )}
                 </section>
                 <h2>Leave A Comment</h2>
                 <form action={`/logs/${log.id}`} method="POST">
@@ -43,7 +47,7 @@ class Show extends React.Component{
                   <input type="text" name="user" className="show-input" />
 
                   <label htmlFor="entry">Comment: </label>
-                  <input type="text" name="comment" className="show-input"/>
+                  <input type="text" name="comment" className="show-input" />
                   <input type="submit" value="Submit Comment" />
                 </form>
               </div>

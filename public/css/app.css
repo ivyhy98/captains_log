@@ -84,17 +84,19 @@ nav a:hover{
 .index-ul{
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
     align-items: center;
 }
 .index-li{
-    height: 40vh;
-    width: 20vw;
+    height: 20vh;
+    width: 30vw;
     color: #003f7d;
     display: block;
     margin-bottom: 2vw;
     text-align: center;
     overflow-x: hidden;
     border: 3px solid orange;
+    border-radius: 25px;
 }
 .index-li:hover{
     border: 3px solid #003f7d;
@@ -107,11 +109,6 @@ nav a:hover{
 .index-a{
     text-decoration: none;
     color: #003f7d;
-}
-
-.index-a:hover{
-    text-decoration: underline;
-    color: orange;
 }
 
 /* New Page */
@@ -152,6 +149,7 @@ nav a:hover{
     flex-direction: column;
     align-items: center;
 }
+
 .show-post{
     border: 2px solid #003f7d;
     background-color: orange;
@@ -164,6 +162,7 @@ nav a:hover{
     height: 60vh;
     margin: 20px;
     text-align: center;
+    border-radius: 25px;
 }
 .button{
     width: 40%;
@@ -193,6 +192,7 @@ nav a:hover{
    width: 80%;
    height: 100%;
    padding: 10px;
+   border-radius: 25px;
 }
 
 .show-comment p{
